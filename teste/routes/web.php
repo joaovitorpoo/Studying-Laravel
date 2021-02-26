@@ -34,10 +34,15 @@ Route::get('/ola/{nome}/{sobrenome}', function ($nome, $sobrenome) {
     echo 'Ola! Seja bem vindo '. $nome . " " .$sobrenome;
 });
 
-// Rotas com parametros opcionais
-
+// Rota com parametros opcionais
 Route::get('/seunome/{nome?}', function ($nome=null) {
     if (isset($nome))
         return 'Ola! Seja bem vindo, '. $nome.'!';
     return 'Voce nao digitou o seu nome.';
 });
+
+// Rotas com regras usando Expressão regular 
+Route::get('/rotacomregras/{nome}/{n}', function ($nome, $n) {
+    for ($i=0; $i < $n; $i++) 
+        echo 'Ola! Seja bem vindo, '. $nome .'! <br>';
+})->where('nome','[A-Za-z]+')->where('n','[0-9]+');
