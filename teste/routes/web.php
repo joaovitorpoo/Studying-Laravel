@@ -64,3 +64,19 @@ Route::prefix('/app')->group(function(){
     })->name('app.profile');
 
 });
+
+Route::get('/produtos', function () {
+    echo "<h1>Produtos</h1>";
+    echo "<ol>";
+    echo "<li>Notebook</li>";
+    echo "<li>Impressora</li>";
+    echo "<li>Mouse</li>";
+    echo "</ol>";
+})->name('meusprodutos');
+
+// Redirecionamento requisições
+Route::redirect('/todosprodutos1', '/produtos', 301);
+
+Route::get('todosprodutos2', function () {
+    return redirect()->route('meusprodutos');
+});
