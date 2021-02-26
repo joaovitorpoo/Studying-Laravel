@@ -33,3 +33,11 @@ Route::get('/ola/{nome}', function ($nome) {
 Route::get('/ola/{nome}/{sobrenome}', function ($nome, $sobrenome) {
     echo 'Ola! Seja bem vindo '. $nome . " " .$sobrenome;
 });
+
+// Rotas com parametros opcionais
+
+Route::get('/seunome/{nome?}', function ($nome=null) {
+    if (isset($nome))
+        return 'Ola! Seja bem vindo, '. $nome.'!';
+    return 'Voce nao digitou o seu nome.';
+});
