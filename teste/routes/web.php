@@ -41,8 +41,26 @@ Route::get('/seunome/{nome?}', function ($nome=null) {
     return 'Voce nao digitou o seu nome.';
 });
 
-// Rotas com regras usando Expressão regular 
+// Rota com regras usando Expressão regular 
 Route::get('/rotacomregras/{nome}/{n}', function ($nome, $n) {
     for ($i=0; $i < $n; $i++) 
         echo 'Ola! Seja bem vindo, '. $nome .'! <br>';
 })->where('nome','[A-Za-z]+')->where('n','[0-9]+');
+
+// Agrupamento de rotas
+Route::prefix('/app')->group(function(){
+
+    Route::get('/', function () {
+        return view('app');
+    })->name('app'); // Nomeando rota
+
+    Route::get('/user', function () {
+        // Mandando para view
+        return view('user');
+    })->name('app.user');
+
+    Route::get('/profile', function () {
+        return view('profile');
+    })->name('app.profile');
+
+});
