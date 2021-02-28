@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,6 +78,28 @@ Route::get('/produtos', function () {
 // Redirecionamento requisições
 Route::redirect('/todosprodutos1', '/produtos', 301);
 
-Route::get('todosprodutos2', function () {
+Route::get('/todosprodutos2', function () {
     return redirect()->route('meusprodutos');
+});
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Route::post('/requisicoes', function (Request $request) {
+    return 'Hello POST';
+});
+
+Route::delete('/requisicoes', function (Request $request) {
+    return 'Hello DELETE';
+});
+
+Route::put('/requisicoes', function (Request $request) {
+    return 'Hello PUT';
+});
+
+Route::patch('/requisicoes', function (Request $request) {
+    return 'Hello PATCH';
+});
+
+Route::options('/requisicoes', function (Request $request) {
+    return 'Hello OPTIONS';
 });

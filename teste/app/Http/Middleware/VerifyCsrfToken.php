@@ -12,6 +12,7 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        //
+        // O Except cria uma ecessao pra nao requisitar o token csrf, deixando agente fazer os testes de requisicoes http sem dar erro.
+        'requisicoes'
     ];
 }
