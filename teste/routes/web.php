@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MeuControlador;
+use App\Http\Controllers\ClienteControlador;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,5 @@ Route::get('idade', [MeuControlador::class, 'getIdade']);
 
 // passando parametros para funcao do controlador
 Route::get('multiplicar/{n1}/{n2}', [MeuControlador::class, 'multiplicar']);
+
+Route::resource('clientes', ClienteControlador::class);
