@@ -26,7 +26,7 @@ class ClienteControlador extends Controller
      */
     public function index()
     {
-        return view('clientes.index', ['Clientes' => session(('clientes'))]);
+        return view('clientes.index', ['Clientes' => session('clientes')]);
     }
 
     /**
@@ -64,7 +64,9 @@ class ClienteControlador extends Controller
      */
     public function show($id)
     {
-        //
+        $clientes = session('clientes');
+        $cliente = $clientes[ $id - 1 ];
+        return view('clientes.info', ['Cliente' => $cliente]);
     }
 
     /**
