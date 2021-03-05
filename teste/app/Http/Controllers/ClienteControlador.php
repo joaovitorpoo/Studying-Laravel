@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 class ClienteControlador extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
     private $clientes = [
         ['id'=>1, 'nome'=>'ademir'],
         ['id'=>2, 'nome'=>'joao'],
@@ -19,11 +25,7 @@ class ClienteControlador extends Controller
         if(!isset($clientes))
             session(['clientes' => $this->clientes]);
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         return view('clientes.index', ['Clientes' => session('clientes')]);
