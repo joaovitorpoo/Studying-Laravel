@@ -65,7 +65,7 @@ class ClienteControlador extends Controller
     public function show($id)
     {
         $clientes = session('clientes');
-        $cliente = $clientes[ $id - 1 ];
+        $cliente = $clientes[ $this->getIndex($id, $clientes) ];
         return view('clientes.info', ['Cliente' => $cliente]);
     }
 
@@ -78,7 +78,7 @@ class ClienteControlador extends Controller
     public function edit($id)
     {
         $clientes = session('clientes');
-        $cliente = $clientes[ $id - 1 ];
+        $cliente = $clientes[ $this->getIndex($id, $clientes) ];
         return view('clientes.edit', ['cliente' => $cliente]);
     }
 
@@ -92,7 +92,7 @@ class ClienteControlador extends Controller
     public function update(Request $request, $id)
     {
         $clientes = session('clientes');
-        $clientes[ $id - 1 ]['nome'] = request()->nome;
+        $clientes[ $this->getIndex($id, $clientes) ]['nome'] = request()->nome;
         session(['clientes' => $clientes]);
         return redirect()->route('clientes.index');
     }
@@ -105,6 +105,16 @@ class ClienteControlador extends Controller
      */
     public function destroy($id)
     {
-        //
+        $clientes = session('clientes');
+        $index = $this->getIndex($id, $clientes);
+        array_splice($clientes, $index);
+        session(['clientes' => $clientes]);
+        return redirect()->route('clientes.index');
+    }
+
+    private function getIndex($id, $clientes){
+        $ids = array_column($clientes, 'id');
+        $index = array_search($id, $ids);
+        return $index;
     }
 }
