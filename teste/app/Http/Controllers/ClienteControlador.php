@@ -28,7 +28,15 @@ class ClienteControlador extends Controller
 
     public function index()
     {
-        return view('clientes.index', ['Clientes' => session('clientes')]);
+        $Titulo = "Todos os clientes";
+        $Clientes = session('clientes');
+        /*
+        return view('clientes.index')
+            ->with('Clientes', $Clientes)
+            ->with('Titulo', $Titulo);
+        */
+        return view('clientes.index', compact(['Clientes', 'Titulo']));
+        //return view('clientes.index', ['Clientes' => $Clientes, 'Titulo' => $Titulo]);
     }
 
     /**

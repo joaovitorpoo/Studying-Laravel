@@ -1,6 +1,10 @@
-<h3>Informações do Cliente</h3>
+@extends('layouts.principal')
 
-<p>ID: {{ $Cliente['id'] }}</p>
-<p>Nome: {{ $Cliente['nome'] }}</p>
-<br>
-<a href="{{ route('clientes.index')}}">Voltar</a>
+@section('conteudo')
+    <h3>Informações do Cliente</h3>
+
+    <p>ID: {{ $Cliente['id'] }}</p>
+    <p>Nome: {{ $Cliente['nome'] }}</p>
+    <br>
+    <a href="{{ route('clientes.index')}}">Voltar</a>
+@endsection
