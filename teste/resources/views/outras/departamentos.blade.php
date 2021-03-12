@@ -9,4 +9,8 @@
         <li>Acessorios</li>
         <li>Computadors & Notebook</li>
     </ul>
+
+    @component('components.alerta')
+    @endcomponent
+    
 @endsection
