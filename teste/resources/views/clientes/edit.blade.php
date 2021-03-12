@@ -1,5 +1,7 @@
 @extends('layouts.principal')
 
+@section('Titulo', 'Editar')
+
 @section('conteudo')
     <h3>Editar Cliente</h3>
 
