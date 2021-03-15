@@ -9,10 +9,5 @@
         <li>Acessorios</li>
         <li>Computadors & Notebook</li>
     </ul>
-
-    @alerta(['titulo'=>'Erro Fatal'])
-        <p><strong>Erro Inesperado</strong></p>
-        <p>Ocorreu um erro inesperado</p>
-    @endalerta
     
 @endsection
