@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('bootstrap', function () {
+    return view('outras.exemplo');
+});
 
 Route::get('produtos', function () {
     return view('outras.produtos');
