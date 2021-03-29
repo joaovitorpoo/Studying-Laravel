@@ -14,7 +14,7 @@
     </head>
 <body>
     <div class="container">
-        @component('componentes.navbar')
+        @component('componentes.navbar', ["current" => $current])
         @endcomponent
         <main role="main">
             @hasSection('body')
