@@ -52,7 +52,7 @@ class ClienteControlador extends Controller
 
         $regras = [
             'nome'  => 'required|min:3|unique:clientes|max:20',
-            'idade' => 'required|min:18',
+            'idade' => 'required',
             'email' => 'required|email'
         ];
 
@@ -63,7 +63,7 @@ class ClienteControlador extends Controller
             'email.required' => 'Digite um endereço de email.',
             'email.email' => 'Digite um endereço de email válido'
         ];
-        
+
         $request->validate($regras, $mensagens);
 
         $cli = new Cliente();
