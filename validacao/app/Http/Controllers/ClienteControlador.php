@@ -37,7 +37,7 @@ class ClienteControlador extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nome' => 'required'
+            'nome' => 'required|min:3|max:20'
         ]); 
 
         $cli = new Cliente();
