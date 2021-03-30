@@ -47,11 +47,13 @@
             </div>
         </div>
     </main>
-    @if (isset($errors))
-    {{ 
-        var_dump($errors) 
-    }} 
-    @endif
+    <!--
+        @if (isset($errors))
+        {{ 
+            var_dump($errors) 
+        }} 
+    @endif 
+    -->
     <script src="{{ asset('js/app.js')}}" type="text/javascript"></script>
 </body>
 </html>
