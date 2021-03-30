@@ -17,6 +17,7 @@
                     </div>
                     <div class="card-body">
                         <form action="/cliente" method="POST">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="form-group">
                                 <label for="nome">Nome do Cliente</label>
                                 <input type="text" class="form-control" name="nome"  id="nome" placeholder="Nome do Cliente">

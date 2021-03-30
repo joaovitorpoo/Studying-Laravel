@@ -36,7 +36,12 @@ class ClienteControlador extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cli = new Cliente();
+        $cli->nome     = $request->input('nome');
+        $cli->idade    = $request->input('idade');
+        $cli->email    = $request->input('email');
+        $cli->save();
+        return redirect('/');
     }
 
     /**
