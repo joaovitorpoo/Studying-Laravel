@@ -42,13 +42,29 @@ class ClienteControlador extends Controller
             'nome' => 'required|min:3|max:20|unique:clientes'
         ]);
         
-        */
-
         $request->validate([
             'nome'  => 'required|min:3|unique:clientes|max:20',
             'idade' => 'required|min:18',
             'email' => 'required|email'
-        ]); 
+        ]);
+
+        */
+
+        $regras = [
+            'nome'  => 'required|min:3|unique:clientes|max:20',
+            'idade' => 'required|min:18',
+            'email' => 'required|email'
+        ];
+
+        $mensagens = [ 
+        //  'nome.required' => 'O nome é requerido.',
+            'nome.min' => 'É necessário no mínimo 3 caracteres no nome.',
+            'required' => 'O atributo :attribute não pode estar em branco.',  // Generico
+            'email.required' => 'Digite um endereço de email.',
+            'email.email' => 'Digite um endereço de email válido'
+        ];
+        
+        $request->validate($regras, $mensagens);
 
         $cli = new Cliente();
         $cli->nome     = $request->input('nome');
